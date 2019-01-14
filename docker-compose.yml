@@ -10,6 +10,8 @@ services:
             - 8082:3000
         networks:
             - monitoring-network
+        environment:
+            - MONGO_HOST=mongo
     kapacitor:
         image: kapacitor:latest
         ports:
