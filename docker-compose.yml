@@ -1,0 +1,27 @@
+version: '3'
+services:
+    monitoring-frontend:
+        image: friedow/monitoring-frontend:latest
+        ports:
+            - 8081:8080
+    monitoring-backend:
+        image: friedow/monitoring-backend:latest
+        ports:
+            - 8082:3000
+        networks:
+            - monitoring-network
+    kapacitor:
+        image: kapacitor:latest
+        ports:
+            - 9092:9092
+        volumes:
+            - $PWD/config/kapacitor.conf:/etc/kapacitor/kapacitor.conf:ro
+            - $PWD/config/kapacitor:/home/kapacitor
+            - $PWD/log/kapacitor:/var/log/kapacitor
+    mongo:
+        image: mongo:latest
+        networks:
+            - monitoring-network
+networks:
+    monitoring-network:
+        driver: overlay
