@@ -1,16 +1,15 @@
 dbrp "telegraf"."autogen"
 
 stream
-    // Select just the cpu measurement from our example database.
     |from()
         .measurement('cpu')
-    |where(lambda: "host" == 'opensap-srv-2602')
+        .groupBy('host')
     |alert()
-        .crit(lambda: "usage_idle" < 90)
-        // Whenever we get an alert write it to a file
+        .crit(lambda: "usage_idle" < 60)
+        .warn(lambda: "usage_idle" < 70)
+        .stateChangesOnly()
         .topic('cpu')
         .post('http://82.140.0.78:8082/alerts')
             .header('Content-Type', 'application/json')
             .captureResponse()
             .timeout(10s)
-        //.log('/var/log/kapacitor/alerts-stream-2.log')
