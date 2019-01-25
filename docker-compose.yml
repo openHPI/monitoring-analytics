@@ -20,6 +20,7 @@ services:
             - $PWD/config/kapacitor.conf:/etc/kapacitor/kapacitor.conf:ro
             - $PWD/config/kapacitor:/home/kapacitor
             - $PWD/log/kapacitor:/var/log/kapacitor
+            - $PWD/lib/kapacitor:/var/lib/kapacitor
     mongo:
         image: mongo:latest
         networks:
