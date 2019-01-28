@@ -2,7 +2,7 @@ topic: hardware
 id: hardware-to-backend
 kind: post
 options:
-  url: "http://82.140.0.78:8082/alerts"
+  url: "http://82.140.0.78:8082/alerts/hardware"
   headers:
     'Content-Type': 'application/json'
   capture-response: true
