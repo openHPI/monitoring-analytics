@@ -9,7 +9,3 @@ stream
         .warn(lambda: "usage_idle" < 70)
         .stateChangesOnly()
         .topic('cpu')
-        .post('http://82.140.0.78:8082/alerts')
-            .header('Content-Type', 'application/json')
-            .captureResponse()
-            .timeout(10s)

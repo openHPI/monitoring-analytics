@@ -1,0 +1,6 @@
+topic: cpu
+id: publish-cpu-to-hardware
+kind: publish
+options:
+  topics:
+    - hardware
