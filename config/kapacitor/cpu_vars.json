@@ -1,7 +1,7 @@
 {
     "measurement": {"type": "string", "value": "cpu"},
     "group_by": {"type": "list", "value": [{"type":"string", "value":"host"}]},
-    "crit": {"type": "lambda", "value": "\"usage_idle\" < 60"},
-    "warn": {"type": "lambda", "value": "\"usage_idle\" < 70"},
+    "crit": {"type": "lambda", "value": "\"usage_idle\" < 50"},
+    "warn": {"type": "lambda", "value": "\"usage_idle\" < 60"},
     "topic": {"type": "string", "value": "cpu"}
 }
