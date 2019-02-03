@@ -1,0 +1,24 @@
+dbrp "telegraf"."autogen"
+
+var measurement string
+var where_filter = lambda: TRUE
+var group_by = [*]
+var crit lambda
+var warn lambda
+var topic string
+var value string
+var time_interval duration
+
+stream
+    |from()
+        .measurement(measurement)
+        .where(where_filter)
+        .groupBy(group_by)
+    |derivative(value)
+	.nonNegative()
+	.unit(time_interval)
+    |alert()
+        .warn(warn)
+        .crit(crit)
+        .stateChangesOnly()
+        .topic(topic)

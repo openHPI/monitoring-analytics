@@ -1,0 +1,6 @@
+topic: http_errors
+id: publish-http_errors-to-network
+kind: publish
+options:
+  topics:
+    - network
