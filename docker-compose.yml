@@ -12,10 +12,13 @@ services:
             - monitoring-network
         environment:
             - MONGO_HOST=mongo
+            - MONGO_HOST=kapacitor
     kapacitor:
         image: kapacitor:latest
         ports:
             - 9092:9092
+        networks:
+            - monitoring-network
         volumes:
             - $PWD/config/kapacitor.conf:/etc/kapacitor/kapacitor.conf:ro
             - $PWD/config/kapacitor:/home/kapacitor
