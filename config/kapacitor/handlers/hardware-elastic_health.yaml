@@ -1,0 +1,6 @@
+topic: elastic-health
+id: publish-elastic_health-to-hardware
+kind: publish
+options:
+  topics:
+    - hardware
