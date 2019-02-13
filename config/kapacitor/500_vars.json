@@ -1,8 +1,0 @@
-{
-    "measurement": {"type": "string", "value": "haproxy"},
-    "value": {"type": "string", "value": "http_response.4xx"},
-    "time_interval": {"type": "duration", "value": "1m"},
-    "crit": {"type": "lambda", "value": "\"http_response.4xx\" > 50"},
-    "warn": {"type": "lambda", "value": "\"http_response.4xx\" > 45"},
-    "topic": {"type": "string", "value": "http_errors"}
-}
