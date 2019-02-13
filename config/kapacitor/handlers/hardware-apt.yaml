@@ -1,0 +1,6 @@
+topic: apt
+id: publish-apt-to-hardware
+kind: publish
+options:
+  topics:
+    - hardware

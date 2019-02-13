@@ -1,0 +1,30 @@
+{
+    "template-id": "hard-threshold",
+    "vars": {
+        "measurement": {
+            "type": "string",
+            "value": "apt-check"
+        },
+        "group_by": {
+            "type": "list",
+            "value": [
+                {
+                    "type": "string",
+                    "value": "host"
+                }
+            ]
+        },
+        "crit": {
+            "type": "lambda",
+            "value": "\"security\" > 5"
+        },
+        "warn": {
+            "type": "lambda",
+            "value": "\"updates\" > 10"
+        },
+        "topic": {
+            "type": "string",
+            "value": "apt"
+        }
+    }
+}
