@@ -26,7 +26,7 @@ var disk_usage = stream
         .crit(lambda: "time_to_full" < 504.0)
         //.crit(lambda: TRUE)
         .warn(lambda: "time_to_full" < 672.0)
-        //.message('Device: {{index .Tags "device"}} will be full in {{index .Fields "time_to_full"}} h (currently used: {{ index .Fields "mean" | printf "%0.2f"}}%).')
+        //.message('Device: {{index .Tags "device"}} will be full in {{index .Fields "time_to_full" | printf "%0.2f"}} h (currently used: {{ index .Fields "mean" | printf "%0.2f"}}%).')
         .message('Disk will be full soon@@@Device: {{index .Tags "device"}} will be full in {{index .Fields "time_to_full"}} h@@@(currently used: {{ index .Fields "mean" | printf "%0.2f"}}%).')
         //.stateChangesOnly()
         .topic('disk')
