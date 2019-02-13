@@ -1,0 +1,30 @@
+{
+    "template-id": "hard-threshold",
+    "vars": {
+        "measurement": {
+            "type": "string",
+            "value": "cpu"
+        },
+        "group_by": {
+            "type": "list",
+            "value": [
+                {
+                    "type": "string",
+                    "value": "host"
+                }
+            ]
+        },
+        "crit": {
+            "type": "lambda",
+            "value": "\"usage_idle\" < 10"
+        },
+        "warn": {
+            "type": "lambda",
+            "value": "\"usage_idle\" < 20"
+        },
+        "topic": {
+            "type": "string",
+            "value": "cpu"
+        }
+    }
+}

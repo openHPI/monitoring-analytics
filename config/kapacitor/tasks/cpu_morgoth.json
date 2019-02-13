@@ -1,0 +1,54 @@
+{
+    "template-id": "morgoth",
+    "vars": {
+        "measurement": {
+            "type": "string",
+            "value": "cpu"
+        },
+        "group_by": {
+            "type": "list",
+            "value": [
+                {
+                    "type": "string",
+                    "value": "host"
+                }
+            ]
+        },
+        "windowPeriod": {
+            "type": "duration",
+            "value": "1m"
+        },
+        "windowEvery": {
+            "type": "duration",
+            "value": "1m"
+        },
+        "morgothField": {
+            "type": "string",
+            "value": "usage_idle"
+        },
+        "morgothScoreField": {
+            "type": "string",
+            "value": "anomalyScore"
+        },
+        "morgothMinSupport": {
+            "type": "float",
+            "value": 0.05
+        },
+        "morgothErrorTolerance": {
+            "type": "float",
+            "value": 0.01
+        },
+        "morgothConsensus": {
+            "type": "float",
+            "value": 0.5
+        },
+        "morgothSigmas": {
+            "type": "float",
+            "value": 3.0
+        },
+        "topic": {
+            "type": "string",
+            "value": "cpu"
+        }
+    }
+}
