@@ -57,5 +57,6 @@ stream
   |alert()
      .details('')
      .crit(lambda: "anomalous")
+     .message('CPU {{ .Level }}@@@Host: {{ index .Tags "host" }}@@@For {{ .Duration }}, since {{ .Time }}')
      //.log('/etc/kapacitor/cpu_morgoth.log')
-     .topic('morgoth')
+     .topic('cpu')
