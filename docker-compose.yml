@@ -12,7 +12,7 @@ services:
             - monitoring-network
         environment:
             - MONGO_HOST=mongo
-            - MONGO_HOST=kapacitor
+            - KAPACITOR_HOST=kapacitor
     kapacitor:
         image: kapacitor:latest
         ports:
