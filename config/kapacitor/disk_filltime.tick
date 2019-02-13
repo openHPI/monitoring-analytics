@@ -1,0 +1,32 @@
+dbrp "telegraf"."autogen"
+
+var window_size = 1h
+var window_every = 15m
+//var window_size = 1m
+//var window_every = 1m
+
+var disk_usage = stream
+    |from()
+        .measurement('disk')
+        .groupBy('device')
+    |where(lambda: "used_percent" > 0)
+    |window()
+        .period(window_size)
+        .every(window_every)
+        .align()
+    |mean('used_percent')
+    |derivative('mean')
+        .unit(window_size)
+        .as('derivative')
+    |eval(lambda: (100.0-float("mean")) / float("derivative"))
+        .as('time_to_full')
+        .keep()
+    |where(lambda: "time_to_full" > 0.0)
+    |alert()
+        .crit(lambda: "time_to_full" < 504.0)
+        //.crit(lambda: TRUE)
+        .warn(lambda: "time_to_full" < 672.0)
+        //.message('Device: {{index .Tags "device"}} will be full in {{index .Fields "time_to_full" | printf "%0.2f"}} h (currently used: {{ index .Fields "mean" | printf "%0.2f"}}%).')
+        .message('Disk will be full soon@@@Device: {{index .Tags "device"}} will be full in {{index .Fields "time_to_full"}} h@@@(currently used: {{ index .Fields "mean" | printf "%0.2f"}}%).')
+        //.stateChangesOnly()
+        .topic('disk')

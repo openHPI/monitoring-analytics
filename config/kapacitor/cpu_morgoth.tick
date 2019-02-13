@@ -1,0 +1,62 @@
+dbrp "telegraf"."autogen"
+
+// The measurement to analyze
+var measurement = 'cpu'
+
+// Optional group by dimensions
+var groups = [*]
+
+// Optional where filter
+var whereFilter = lambda: TRUE
+
+// The amount of data to window at once
+var window = 1m
+
+// The field to process
+var field = 'usage_idle'
+
+// The name for the anomaly score field
+var scoreField = 'anomalyScore'
+
+// The minimum support
+// For example a support of 0.05 can be interpreted as: the event has been seen 5% of the time.
+var minSupport = 0.05
+
+// The error tolerance
+var errorTolerance = 0.01
+
+// The consensus
+var consensus = 0.5
+
+// Number of sigmas allowed for normal window deviation
+var sigmas = 3.0
+
+stream
+  // Select the data we want
+  |from()
+      .measurement(measurement)
+      //.groupBy(groups)
+      .groupBy('host')
+      .where(whereFilter)
+  // Window the data for a certain amount of time
+  |window()
+     .period(window)
+     .every(window)
+     .align()
+  // Send each window to Morgoth
+  @morgoth()
+     .field(field)
+     .anomalousField('anomalous')
+     .scoreField(scoreField)
+     .minSupport(minSupport)
+     .errorTolerance(errorTolerance)
+     .consensus(consensus)
+     // Configure a single Sigma fingerprinter
+     .sigma(sigmas)
+  // Morgoth returns any anomalous windows
+  |alert()
+     .details('')
+     .crit(lambda: "anomalous")
+     .message('CPU {{ .Level }}@@@Host: {{ index .Tags "host" }}@@@For {{ .Duration }}, since {{ .Time }}')
+     //.log('/etc/kapacitor/cpu_morgoth.log')
+     .topic('cpu')
