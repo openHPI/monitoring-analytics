@@ -1,0 +1,6 @@
+topic: disk
+id: publish-disk-to-hardware
+kind: publish
+options:
+  topics:
+    - hardware
