@@ -17,6 +17,7 @@ stream
     |derivative(value)
 	    .nonNegative()
 	    .unit(time_interval)
+        .quiet()
     |alert()
         .warn(warn)
         .crit(crit)
