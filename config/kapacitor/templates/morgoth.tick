@@ -37,5 +37,5 @@ stream
 //morgoth returns any anomalous window
     |alert()
         .crit(lambda: "anomalous")
-	    .message(string(measurement) + ' {{ .Level }}@@@{{ index .Tags "device" }}@{{ index .Tags "host" }}:{{ index .Tags "fqdn" }}@@@For {{ .Duration }}, since {{ .Time }}')
+	    .message(string(measurement) + ' is {{ .Level }}@@@{{ index .Tags "device" }}@{{ index .Tags "host" }}:{{ index .Tags "fqdn" }}@@@For {{ .Duration }}, since {{ .Time }}')
         .topic(topic)
