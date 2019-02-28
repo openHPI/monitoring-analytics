@@ -4,6 +4,8 @@ services:
         image: friedow/monitoring-frontend:latest
         ports:
             - 8081:8080
+        volumes:
+            - $PWD/config/frontend/config.ts:/usr/src/monitoring-frontend/src/config.ts
     monitoring-backend:
         image: friedow/monitoring-backend:latest
         ports:
