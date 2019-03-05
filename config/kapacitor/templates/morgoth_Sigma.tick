@@ -3,8 +3,8 @@ dbrp "telegraf"."autogen"
 var measurement string
 var where_filter = lambda: TRUE
 var group_by = [*]
-var grafanaPanelId string = ""
-var grafanaDashboardName string = ""
+var grafanaPanelId = ''
+var grafanaDashboardName = ''
 var windowPeriod = 1m
 var windowEvery = 1m  
 
@@ -33,7 +33,7 @@ stream
         .minSupport(morgothMinSupport)	
         .errorTolerance(morgothErrorTolerance)
         // configure a single sigma fingerprinter
-        .sigma(sigmaDeaviation)
+        .sigma(sigmaDeviation)
     |default()
         .tag('grafanaPanelID', grafanaPanelId) 
         .tag('grafanaDashboardName', grafanaDashboardName) 

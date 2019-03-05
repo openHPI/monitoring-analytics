@@ -3,6 +3,8 @@ dbrp "telegraf"."autogen"
 var measurement string
 var where_filter = lambda: TRUE
 var group_by = [*]
+var grafanaPanelId = ''
+var grafanaDashboardName = ''
 var windowPeriod = 1m
 var windowEvery = 1m  
 
@@ -30,8 +32,11 @@ stream
         .scoreField(morgothScoreField)
         .minSupport(morgothMinSupport)	
         .errorTolerance(morgothErrorTolerance)
-        // configure a single sigma fingerprinter
+        // configure a single KS-Test fingerprinter
 	.kstest(ksConfidence)
+    |default()
+        .tag('grafanaPanelID', grafanaPanelId) 
+        .tag('grafanaDashboardName', grafanaDashboardName) 
 //morgoth returns any anomalous window
     |alert()
         .crit(lambda: "anomalous")
