@@ -12,9 +12,9 @@ var morgothField string
 var morgothScoreField = 'anomalyScore'
 var morgothMinSupport = 0.05
 var morgothErrorTolerance = 0.01
-var jsMin = 0
-var jsMax = 1000000
-var jsBinWidth = 100
+var jsMin = 0.0
+var jsMax = 1000000.0
+var jsBinWidth = 100.0
 var jsPValue = 0.05
 var topic string
 
