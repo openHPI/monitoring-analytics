@@ -42,8 +42,8 @@
             "type": "float",
             "value": 0
         },
-        "sigmaDeviation": {
-            "type": "float",
+        "ksConfidence": {
+            "type": "int",
             "value": 0
         },
         "topic": {
