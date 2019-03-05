@@ -2,6 +2,8 @@ dbrp "telegraf"."autogen"
 
 var window_size = 1h
 var window_every = 15m
+var grafanaPanelId string = ""
+var grafanaDashboardName string = ""
 //var window_size = 1m
 //var window_every = 1m
 
@@ -22,6 +24,9 @@ var disk_usage = stream
         .as('time_to_full')
         .keep()
     |where(lambda: "time_to_full" > 0.0)
+    |default()
+        .tag('grafanaPanelID', grafanaPanelId) 
+        .tag('grafanaDashboardName', grafanaDashboardName) 
     |alert()
         .crit(lambda: "time_to_full" < 504.0)
         //.crit(lambda: TRUE)
