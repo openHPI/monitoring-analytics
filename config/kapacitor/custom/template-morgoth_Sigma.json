@@ -42,10 +42,6 @@
             "type": "float",
             "value": 0
         },
-        "morgothConsensus": {
-            "type": "float",
-            "value": 0
-        },
         "morgothSigmas": {
             "type": "float",
             "value": 0
