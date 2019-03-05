@@ -1,0 +1,42 @@
+{
+    "template-id": "hard-threshold",
+    "vars": {
+        "measurement": {
+            "type": "string",
+            "value": ""
+        },
+        "where_filter": {
+            "type": "lambda",
+            "value": ""
+        },
+        "group_by": {
+            "type": "list",
+            "value": [
+                {
+                    "type": "string",
+                    "value": ""
+                }
+            ]
+        },
+        "crit": {
+            "type": "lambda",
+            "value": ""
+        },
+        "warn": {
+            "type": "lambda",
+            "value": ""
+        },
+        "topic": {
+            "type": "string",
+            "value": ""
+        },
+        "grafanaPanelId": {
+            "type": "string",
+            "value": ""
+        },
+        "grafanaDashboardName": {
+            "type": "string",
+            "value": ""
+        }
+    }
+}
