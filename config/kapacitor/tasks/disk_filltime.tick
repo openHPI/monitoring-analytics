@@ -8,7 +8,7 @@ var window_every = 15m
 var disk_usage = stream
     |from()
         .measurement('disk')
-        .groupBy('device')
+        .groupBy('device', 'host', 'role', 'system', 'fqdn')
     |where(lambda: "used_percent" > 0)
     |window()
         .period(window_size)

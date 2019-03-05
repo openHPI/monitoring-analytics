@@ -11,6 +11,18 @@
                 {
                     "type": "string",
                     "value": "host"
+                },
+                {
+                    "type": "string",
+                    "value": "role"
+                },
+                {
+                    "type": "string",
+                    "value": "system"
+                },
+                {
+                    "type": "string",
+                    "value": "fqdn"
                 }
             ]
         },
