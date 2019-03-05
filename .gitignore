@@ -1,3 +1,6 @@
 # log-files
 log
 lib
+
+# frontend config file
+config/frontend/config.ts
