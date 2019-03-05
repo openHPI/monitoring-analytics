@@ -9,8 +9,13 @@ var windowEvery = 1m
 var morgothField string
 var morgothScoreField = 'anomalyScore'
 var morgothMinSupport = 0.05
-var morgothErrorTolerance = 0.01
-var ksConfidence = 3
+var morgothErrorTolerance = 0.01i
+var morgothConsensus = 0.5
+var jsMin = 0
+var jsMax = 1000000
+var jsBinWidth = 100
+var jsPValue = 0.05
+var sigmaDeviation = 3.0
 var topic string
 
 stream
@@ -30,8 +35,10 @@ stream
         .scoreField(morgothScoreField)
         .minSupport(morgothMinSupport)	
         .errorTolerance(morgothErrorTolerance)
+	.consensus(morgothConsensus)
         // configure a single sigma fingerprinter
-	.kstest(ksConfidence)
+	.jsdiv(JSMin, JSMax, JSBinWidth, JSPValue)
+	.sigma(sigmaDeviation)
 //morgoth returns any anomalous window
     |alert()
         .crit(lambda: "anomalous")

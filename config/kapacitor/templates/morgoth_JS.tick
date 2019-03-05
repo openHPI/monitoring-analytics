@@ -9,7 +9,7 @@ var windowEvery = 1m
 var morgothField string
 var morgothScoreField = 'anomalyScore'
 var morgothMinSupport = 0.05
-var morgothErrorTolerance = 0.01i
+var morgothErrorTolerance = 0.01
 var jsMin = 0
 var jsMax = 1000000
 var jsBinWidth = 100
