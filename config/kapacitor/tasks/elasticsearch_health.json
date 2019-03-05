@@ -1,0 +1,21 @@
+{
+    "template-id": "hard-threshold",
+    "vars": {
+        "measurement": {
+            "type": "string",
+            "value": "elasticsearch_cluster_health"
+        },
+        "crit": {
+            "type": "lambda",
+            "value": "\"status_code\" > 2"
+        },
+        "warn": {
+            "type": "lambda",
+            "value": "\"status_code\" > 1"
+        },
+        "topic": {
+            "type": "string",
+            "value": "elastic-health"
+        }
+    }
+}

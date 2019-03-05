@@ -16,4 +16,5 @@ stream
         .warn(warn)
         .crit(crit)
         .stateChangesOnly()
+        .message(string(measurement) + ' is {{ .Level }}@@@{{ index .Tags "device" }}@{{ index .Tags "host" }}:{{ index .Tags "fqdn" }}@@@For {{ .Duration }}, since {{ .Time }}')
         .topic(topic)

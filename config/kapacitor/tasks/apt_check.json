@@ -3,7 +3,7 @@
     "vars": {
         "measurement": {
             "type": "string",
-            "value": "cpu"
+            "value": "apt-check"
         },
         "group_by": {
             "type": "list",
@@ -28,15 +28,15 @@
         },
         "crit": {
             "type": "lambda",
-            "value": "\"usage_idle\" < 10"
+            "value": "\"security\" > 5"
         },
         "warn": {
             "type": "lambda",
-            "value": "\"usage_idle\" < 20"
+            "value": "\"updates\" > 10"
         },
         "topic": {
             "type": "string",
-            "value": "cpu"
+            "value": "apt"
         }
     }
 }
