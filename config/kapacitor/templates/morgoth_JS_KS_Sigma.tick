@@ -40,7 +40,7 @@ stream
         .errorTolerance(morgothErrorTolerance)
 	.consensus(morgothConsensus)
         // configure a JSDIV, a KS-test and a sigma fingerprinter
-	.jsdiv(JSMin, JSMax, JSBinWidth, JSPValue)
+	.jsdiv(jsMin, jsMax, jsBinWidth, jsPValue)
 	.kstest(ksConfidence)
 	.sigma(sigmaDeviation)
     |default()

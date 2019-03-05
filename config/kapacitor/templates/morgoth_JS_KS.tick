@@ -39,7 +39,7 @@ stream
         .errorTolerance(morgothErrorTolerance)
 	.consensus(morgothConsensus)
         // configure a JSDIV and a KS-test fingerprinter
-	.jsdiv(JSMin, JSMax, JSBinWidth, JSPValue)
+	.jsdiv(jsMin, jsMax, jsBinWidth, jsPValue)
 	.kstest(ksConfidence)
     |default()
         .tag('grafanaPanelID', grafanaPanelId) 

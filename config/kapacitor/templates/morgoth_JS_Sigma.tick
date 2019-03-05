@@ -39,7 +39,7 @@ stream
         .errorTolerance(morgothErrorTolerance)
 	.consensus(morgothConsensus)
         // configure a JSDIV and a sigma fingerprinter
-	.jsdiv(JSMin, JSMax, JSBinWidth, JSPValue)
+	.jsdiv(jsMin, jsMax, jsBinWidth, jsPValue)
 	.sigma(sigmaDeviation)
     |default()
         .tag('grafanaPanelID', grafanaPanelId) 

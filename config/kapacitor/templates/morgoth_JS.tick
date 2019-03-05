@@ -36,7 +36,7 @@ stream
         .minSupport(morgothMinSupport)	
         .errorTolerance(morgothErrorTolerance)
         // configure a single JSDIV fingerprinter
-	.jsdiv(JSMin, JSMax, JSBinWidth, JSPValue)
+	.jsdiv(jsMin, jsMax, jsBinWidth, jsPValue)
     |default()
         .tag('grafanaPanelID', grafanaPanelId) 
         .tag('grafanaDashboardName', grafanaDashboardName) 
