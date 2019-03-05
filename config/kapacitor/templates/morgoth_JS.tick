@@ -1,0 +1,42 @@
+dbrp "telegraf"."autogen"
+
+var measurement string
+var where_filter = lambda: TRUE
+var group_by = [*]
+var windowPeriod = 1m
+var windowEvery = 1m  
+
+var morgothField string
+var morgothScoreField = 'anomalyScore'
+var morgothMinSupport = 0.05
+var morgothErrorTolerance = 0.01i
+var jsMin = 0
+var jsMax = 1000000
+var jsBinWidth = 100
+var jsPValue = 0.05
+var topic string
+
+stream
+    |from()
+        .measurement(measurement)
+        .groupBy(group_by)
+        .where(where_filter)
+// Window the Data for a certain time
+    |window()
+        .period(windowPeriod)
+        .every(windowEvery)
+        .align()
+// send each window to morgoth
+    @morgoth()
+        .field(morgothField)
+        .anomalousField('anomalous')
+        .scoreField(morgothScoreField)
+        .minSupport(morgothMinSupport)	
+        .errorTolerance(morgothErrorTolerance)
+        // configure a single sigma fingerprinter
+	.jsdiv(JSMin, JSMax, JSBinWidth, JSPValue)
+//morgoth returns any anomalous window
+    |alert()
+        .crit(lambda: "anomalous")
+        .message(string(measurement) + ' is {{ .Level }}@@@{{ index .Tags "device" }}@{{ index .Tags "host" }}:{{ index .Tags "fqdn" }}@@@For {{ .Duration }}, since {{ .Time }}')
+        .topic(topic)
