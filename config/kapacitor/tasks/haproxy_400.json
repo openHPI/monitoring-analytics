@@ -24,6 +24,14 @@
         "topic": {
             "type": "string",
             "value": "http_errors"
+        },
+        "grafanaPanelId": {
+            "type": "string",
+            "value": ""
+        },
+        "grafanaDashboardName": {
+            "type": "string",
+            "value": ""
         }
     }
 }

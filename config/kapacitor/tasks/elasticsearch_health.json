@@ -16,6 +16,14 @@
         "topic": {
             "type": "string",
             "value": "elastic-health"
+        },
+        "grafanaPanelId": {
+            "type": "string",
+            "value": ""
+        },
+        "grafanaDashboardName": {
+            "type": "string",
+            "value": ""
         }
     }
 }

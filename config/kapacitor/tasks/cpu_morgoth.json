@@ -61,6 +61,14 @@
         "topic": {
             "type": "string",
             "value": "cpu"
+        },
+        "grafanaPanelId": {
+            "type": "string",
+            "value": ""
+        },
+        "grafanaDashboardName": {
+            "type": "string",
+            "value": ""
         }
     }
 }
