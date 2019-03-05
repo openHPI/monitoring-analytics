@@ -1,0 +1,70 @@
+{
+    "template-id": "morgoth",
+    "vars": {
+        "measurement": {
+            "type": "string",
+            "value": ""
+        },
+        "where_filter": {
+            "type": "lambda",
+            "value": ""
+        },
+        "group_by": {
+            "type": "list",
+            "value": [
+                {
+                    "type": "string",
+                    "value": ""
+                }
+            ]
+        },
+        "windowPeriod": {
+            "type": "duration",
+            "value": ""
+        },
+        "windowEvery": {
+            "type": "duration",
+            "value": ""
+        },
+        "morgothField": {
+            "type": "string",
+            "value": ""
+        },
+        "morgothScoreField": {
+            "type": "string",
+            "value": ""
+        },
+        "morgothMinSupport": {
+            "type": "float",
+            "value": 0
+        },
+        "morgothErrorTolerance": {
+            "type": "float",
+            "value": 0
+        },
+        "morgothConsensus": {
+            "type": "float",
+            "value": 0
+        },
+        "ksConfidence": {
+            "type": "int",
+            "value": 0
+        },
+        "sigmaDeviation": {
+            "type": "float",
+            "value": 0
+        },
+        "topic": {
+            "type": "string",
+            "value": ""
+        },
+        "grafanaPanelId": {
+            "type": "string",
+            "value": ""
+        },
+        "grafanaDashboardName": {
+            "type": "string",
+            "value": ""
+        }
+    }
+}
