@@ -21,21 +21,21 @@ stream
         .where(where_filter)
 // Window the Data for a certain time
     |window()
-	    .period(windowPeriod)
-	    .every(windowEvery)
-	    .align()
+        .period(windowPeriod)
+        .every(windowEvery)
+        .align()
 // send each window to morgoth
     @morgoth()
-	    .field(morgothField)
-	    .anomalousField('anomalous')
-	    .scoreField(morgothScoreField)
-	    .minSupport(morgothMinSupport)	
-	    .errorTolerance(morgothErrorTolerance)
-	    .consensus(morgothConsensus)
-	    // configure a single sigma fingerprinter
-	    .sigma(morgothSigmas)
+        .field(morgothField)
+        .anomalousField('anomalous')
+        .scoreField(morgothScoreField)
+        .minSupport(morgothMinSupport)	
+        .errorTolerance(morgothErrorTolerance)
+        .consensus(morgothConsensus)
+        // configure a single sigma fingerprinter
+        .sigma(morgothSigmas)
 //morgoth returns any anomalous window
     |alert()
         .crit(lambda: "anomalous")
-	    .message(string(measurement) + ' is {{ .Level }}@@@{{ index .Tags "device" }}@{{ index .Tags "host" }}:{{ index .Tags "fqdn" }}@@@For {{ .Duration }}, since {{ .Time }}')
+        .message(string(measurement) + ' is {{ .Level }}@@@{{ index .Tags "device" }}@{{ index .Tags "host" }}:{{ index .Tags "fqdn" }}@@@For {{ .Duration }}, since {{ .Time }}')
         .topic(topic)
