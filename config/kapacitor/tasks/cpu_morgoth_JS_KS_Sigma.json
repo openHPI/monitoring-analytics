@@ -1,5 +1,5 @@
 {
-    "template-id": "morgoth-sigma",
+    "template-id": "morgoth-js-ks-sigma",
     "vars": {
         "measurement": {
             "type": "string",
@@ -54,7 +54,27 @@
             "type": "float",
             "value": 0.5
         },
-        "morgothSigmas": {
+        "jsMin": {
+            "type": "float",
+            "value": 0.0
+        },
+        "jsMax": {
+            "type": "float",
+            "value": 100.0
+        },
+        "jsBinWidth": {
+            "type": "float",
+            "value": 5.0
+        },
+        "jsPValue": {
+            "type": "float",
+            "value": 0.05
+        },
+        "ksConfidence": {
+            "type": "int",
+            "value": 3
+        },
+        "sigmaDeviation": {
             "type": "float",
             "value": 3.0
         },
