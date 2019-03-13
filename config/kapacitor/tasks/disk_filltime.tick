@@ -2,8 +2,8 @@ dbrp "telegraf"."autogen"
 
 var window_size = 1h
 var window_every = 15m
-var grafanaPanelId string = ""
-var grafanaDashboardName string = ""
+var grafanaPanelId = '6'
+var grafanaDashboardName = 'generic-physical-host'
 //var window_size = 1m
 //var window_every = 1m
 

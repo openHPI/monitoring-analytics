@@ -40,11 +40,11 @@
         },
         "grafanaPanelId": {
             "type": "string",
-            "value": ""
+            "value": "1"
         },
         "grafanaDashboardName": {
             "type": "string",
-            "value": ""
+            "value": "generic-physical-host"
         }
     }
 }

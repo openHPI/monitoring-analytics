@@ -3,8 +3,8 @@ dbrp "telegraf"."autogen"
 var measurement string
 var where_filter = lambda: TRUE
 var group_by = [*]
-var grafanaPanelId string = ''
-var grafanaDashboardName string = ''
+var grafanaPanelId = ''
+var grafanaDashboardName = ''
 var crit lambda
 var warn lambda
 var topic string
