@@ -3,6 +3,8 @@ dbrp "telegraf"."autogen"
 var measurement string
 var where_filter = lambda: TRUE
 var group_by = [*]
+var grafanaPanelId = ''
+var grafanaDashboardName = ''
 var windowPeriod = 1m
 var windowEvery = 1m  
 
@@ -10,8 +12,7 @@ var morgothField string
 var morgothScoreField = 'anomalyScore'
 var morgothMinSupport = 0.05
 var morgothErrorTolerance = 0.01
-var morgothConsensus = 0.5
-var morgothSigmas = 3.0
+var ksConfidence = 3
 var topic string
 
 stream
@@ -31,9 +32,11 @@ stream
         .scoreField(morgothScoreField)
         .minSupport(morgothMinSupport)	
         .errorTolerance(morgothErrorTolerance)
-        .consensus(morgothConsensus)
-        // configure a single sigma fingerprinter
-        .sigma(morgothSigmas)
+        // configure a single KS-Test fingerprinter
+	.kstest(ksConfidence)
+    |default()
+        .tag('grafanaPanelID', grafanaPanelId) 
+        .tag('grafanaDashboardName', grafanaDashboardName) 
 //morgoth returns any anomalous window
     |alert()
         .crit(lambda: "anomalous")

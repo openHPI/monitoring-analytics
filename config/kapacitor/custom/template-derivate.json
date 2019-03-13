@@ -3,27 +3,40 @@
     "vars": {
         "measurement": {
             "type": "string",
-            "value": "haproxy"
+            "value": ""
+        },
+        "where_filter": {
+            "type": "lambda",
+            "value": ""
+        },
+        "group_by": {
+            "type": "list",
+            "value": [
+                {
+                    "type": "string",
+                    "value": ""
+                }
+            ]
         },
         "value": {
             "type": "string",
-            "value": "http_response.4xx"
+            "value": ""
         },
         "time_interval": {
             "type": "duration",
-            "value": "1m"
+            "value": ""
         },
         "crit": {
             "type": "lambda",
-            "value": "\"http_response.4xx\" > 50"
+            "value": ""
         },
         "warn": {
             "type": "lambda",
-            "value": "\"http_response.4xx\" > 45"
+            "value": ""
         },
         "topic": {
             "type": "string",
-            "value": "http_errors"
+            "value": ""
         },
         "grafanaPanelId": {
             "type": "string",

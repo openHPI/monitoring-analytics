@@ -3,48 +3,40 @@
     "vars": {
         "measurement": {
             "type": "string",
-            "value": "cpu"
+            "value": ""
+        },
+        "where_filter": {
+            "type": "lambda",
+            "value": ""
         },
         "group_by": {
             "type": "list",
             "value": [
                 {
                     "type": "string",
-                    "value": "host"
-                },
-                {
-                    "type": "string",
-                    "value": "role"
-                },
-                {
-                    "type": "string",
-                    "value": "system"
-                },
-                {
-                    "type": "string",
-                    "value": "fqdn"
+                    "value": ""
                 }
             ]
         },
         "crit": {
             "type": "lambda",
-            "value": "\"usage_idle\" < 10"
+            "value": ""
         },
         "warn": {
             "type": "lambda",
-            "value": "\"usage_idle\" < 20"
+            "value": ""
         },
         "topic": {
             "type": "string",
-            "value": "cpu"
+            "value": ""
         },
         "grafanaPanelId": {
             "type": "string",
-            "value": "1"
+            "value": ""
         },
         "grafanaDashboardName": {
             "type": "string",
-            "value": "generic-physical-host"
+            "value": ""
         }
     }
 }
