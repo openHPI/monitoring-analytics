@@ -26,6 +26,10 @@ services:
             - $PWD/config/kapacitor:/home/kapacitor
             - $PWD/log/kapacitor:/var/log/kapacitor
             - $PWD/lib/kapacitor:/var/lib/kapacitor
+    morgoth:
+        image: maximilianvoelker/morgoth:latest
+        volumes:
+            - $PWD/config/kapacitor/morgoth=:/opt/morgoth-socket
     mongo:
         image: mongo:latest
         networks:
