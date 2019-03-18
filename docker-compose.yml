@@ -28,8 +28,10 @@ services:
             - $PWD/lib/kapacitor:/var/lib/kapacitor
     morgoth:
         image: maximilianvoelker/morgoth:latest
+        ports:
+            - 6767:6767
         volumes:
-            - $PWD/config/kapacitor/morgoth=:/opt/morgoth-socket
+            - $PWD/config/kapacitor:/opt
     mongo:
         image: mongo:latest
         networks:
