@@ -1,5 +1,5 @@
 {
-    "template-id": "morgoth",
+    "template-id": "morgoth-js-sigma",
     "vars": {
         "measurement": {
             "type": "string",
@@ -62,8 +62,8 @@
             "type": "float",
             "value": 0
         },
-        "ksConfidence": {
-            "type": "int",
+        "sigmaDeviation": {
+            "type": "float",
             "value": 0
         },
         "topic": {

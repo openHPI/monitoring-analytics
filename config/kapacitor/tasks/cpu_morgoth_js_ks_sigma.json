@@ -1,86 +1,94 @@
 {
-    "template-id": "morgoth",
+    "template-id": "morgoth-js-ks-sigma",
     "vars": {
         "measurement": {
             "type": "string",
-            "value": ""
-        },
-        "where_filter": {
-            "type": "lambda",
-            "value": ""
+            "value": "cpu"
         },
         "group_by": {
             "type": "list",
             "value": [
                 {
                     "type": "string",
-                    "value": ""
+                    "value": "host"
+                },
+                {
+                    "type": "string",
+                    "value": "role"
+                },
+                {
+                    "type": "string",
+                    "value": "system"
+                },
+                {
+                    "type": "string",
+                    "value": "fqdn"
                 }
             ]
         },
         "windowPeriod": {
             "type": "duration",
-            "value": ""
+            "value": "1m"
         },
         "windowEvery": {
             "type": "duration",
-            "value": ""
+            "value": "1m"
         },
         "morgothField": {
             "type": "string",
-            "value": ""
+            "value": "usage_idle"
         },
         "morgothScoreField": {
             "type": "string",
-            "value": ""
+            "value": "anomalyScore"
         },
         "morgothMinSupport": {
             "type": "float",
-            "value": 0
+            "value": 0.05
         },
         "morgothErrorTolerance": {
             "type": "float",
-            "value": 0
+            "value": 0.01
         },
         "morgothConsensus": {
             "type": "float",
-            "value": 0
+            "value": 0.5
         },
         "jsMin": {
             "type": "float",
-            "value": 0
+            "value": 0.0
         },
         "jsMax": {
             "type": "float",
-            "value": 0
+            "value": 100.0
         },
         "jsBinWidth": {
             "type": "float",
-            "value": 0
+            "value": 5.0
         },
         "jsPValue": {
             "type": "float",
-            "value": 0
+            "value": 0.05
         },
         "ksConfidence": {
             "type": "int",
-            "value": 0
+            "value": 3
         },
         "sigmaDeviation": {
             "type": "float",
-            "value": 0
+            "value": 3.0
         },
         "topic": {
             "type": "string",
-            "value": ""
+            "value": "cpu"
         },
         "grafanaPanelId": {
             "type": "string",
-            "value": ""
+            "value": "1"
         },
         "grafanaDashboardName": {
             "type": "string",
-            "value": ""
+            "value": "generic-physical-host"
         }
     }
 }
