@@ -1,0 +1,33 @@
+dbrp "telegraf"."autogen"
+
+var measurement string
+var where_filter = lambda: TRUE
+var group_by = [*]
+var grafanaPanelId = ''
+var grafanaDashboardName = ''
+var crit lambda
+var warn lambda
+var topic string
+var value string
+var window_size = 1h
+var window_every = 15m
+
+stream
+    |from()
+        .measurement(measurement)
+        .where(where_filter)
+        .groupBy(group_by)
+    |window()
+        .period(window_size)
+        .every(window_every)
+        .align()
+    |mean(value)
+    |default()
+        .tag('grafanaPanelID', grafanaPanelId) 
+        .tag('grafanaDashboardName', grafanaDashboardName) 
+    |alert()
+        .warn(warn)
+        .crit(crit)
+        .message(string(measurement) + ' is {{ .Level }}@@@{{ index .Tags "device" }}@{{ index .Tags "host" }}:{{ index .Tags "fqdn" }}@@@For {{ .Duration }}, since {{ .Time }}')
+        .stateChangesOnly()
+        .topic(topic)
