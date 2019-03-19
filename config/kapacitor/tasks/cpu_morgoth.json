@@ -68,7 +68,7 @@
         },
         "grafanaDashboardName": {
             "type": "string",
-            "value": "generic-physical-host"
+            "value": "000000001/generic-physical-host"
         }
     }
 }

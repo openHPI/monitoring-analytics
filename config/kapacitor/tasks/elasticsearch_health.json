@@ -19,11 +19,11 @@
         },
         "grafanaPanelId": {
             "type": "string",
-            "value": ""
+            "value": "9"
         },
         "grafanaDashboardName": {
             "type": "string",
-            "value": ""
+            "value": "tgnwX3_ik/moda-exploration"
         }
     }
 }
